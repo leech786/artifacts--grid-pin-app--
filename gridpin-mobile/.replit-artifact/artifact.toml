@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/gridpin-mobile/"
+title = "GridPin Mobile"
+version = "1.0.0"
+id = "artifacts/gridpin-mobile"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/gridpin-mobile/" ]
+localPort = 19091
+
+[services.development]
+run = "pnpm --filter @workspace/gridpin-mobile run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/gridpin-mobile", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/gridpin-mobile", "run", "serve" ]
+
+[services.env]
+PORT = "19091"
+BASE_PATH = "/gridpin-mobile/"
